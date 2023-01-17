@@ -8,4 +8,6 @@ app.use(cors());
 app.use(express.json())
 app.use(router)
 
-app.listen(process.env.PORT, () => console.log(`Running on port ${process.env.PORT}`))
+app.listen(process.env.PORT || 3000, () => console.log(`Running on port ${process.env.PORT}`))
+
+module.exports = app;
