@@ -1,0 +1,1 @@
+require("./infra/express/index");
