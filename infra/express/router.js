@@ -7,7 +7,7 @@ const auth = require("../services/authService");
 
 const subscriptionService = require("../services/subscriptionService")
 
-router.post("/api/user/create", async (req, res) => {
+router.post("/user/create", async (req, res) => {
     const adapter = new userHttpAdapter(req.body)
     const user = await adapter.create()
     if (user) {
@@ -19,7 +19,7 @@ router.post("/api/user/create", async (req, res) => {
         res.end()
     }
 })
-router.get("/api/user/getAll", async (req, res) => {
+router.get("/user/getAll", async (req, res) => {
     const adapter = new userHttpAdapter(req.body)
     const user = await adapter.getAll()
     console.log(user)
@@ -29,7 +29,7 @@ router.get("/api/user/getAll", async (req, res) => {
         res.end()
     }
 })
-router.get("/api/user/:id", async (req, res) => {
+router.get("/user/:id", async (req, res) => {
     const { id } = req.params;
 
     if (!id) {
@@ -45,7 +45,7 @@ router.get("/api/user/:id", async (req, res) => {
     })
 })
 
-router.post("/api/course/create", async (req, res) => {
+router.post("/course/create", async (req, res) => {
     const adapter = new courseHttpAdapter(req.body)
     const data = await adapter.create()
     if (data.status == 200) {
@@ -54,7 +54,7 @@ router.post("/api/course/create", async (req, res) => {
         return res.end()
     }
 })
-router.get("/api/courses/getAll", async (req, res) => {
+router.get("/courses/getAll", async (req, res) => {
     const adapter = new courseHttpAdapter(req.body)
     const data = await adapter.getAll()
     if (data.status == 200) {
@@ -63,7 +63,7 @@ router.get("/api/courses/getAll", async (req, res) => {
         return res.end()
     }
 })
-router.post("/api/auth/login", async (req, res) => {
+router.post("/auth/login", async (req, res) => {
     const user = await auth.login(req.body);
     if (!user) {
         return res.status(400).json({})
@@ -74,7 +74,7 @@ router.post("/api/auth/login", async (req, res) => {
         })
     }
 })
-router.post("/api/course/:id/subscribe/:user", async (req, res) => {
+router.post("/course/:id/subscribe/:user", async (req, res) => {
     const { id, user } = req.params;
     if (!id || !user) {
         return res.status(400).json()
@@ -88,4 +88,4 @@ router.post("/api/course/:id/subscribe/:user", async (req, res) => {
     
 })
 
-module.exports = router
+module.exports = router;
