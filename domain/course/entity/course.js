@@ -1,6 +1,5 @@
 class Course {
     constructor (data) {
-        this.id = data.id;
         this.subject = data.subject;
         this.description = data.description;
         this.category = data.category;

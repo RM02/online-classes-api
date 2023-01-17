@@ -7,7 +7,6 @@ class CourseHttpController {
         this.data = obj.data;
     }
     async create () {
-        this.data.id = uuidv4();
         const courseService = CourseManager();
         const course = courseService.create(this.data);
         if (course) {

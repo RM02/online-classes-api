@@ -1,7 +1,7 @@
 const { 
     createCourse,
     getCourses
-} = require("../repo/mySQL");
+} = require("../repo/database");
 
 const save = async (data) => {
     await createCourse(data)

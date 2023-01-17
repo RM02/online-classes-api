@@ -1,4 +1,4 @@
-const { createUser, getUsers, getOne } = require("../repo/mySQL");
+const { createUser, getUsers, getOne } = require("../repo/database");
 
 const save = async (data) => {
     await createUser(data)

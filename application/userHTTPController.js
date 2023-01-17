@@ -1,5 +1,4 @@
 
-const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
 const saltRounds = 10
 
@@ -15,7 +14,6 @@ class UserHttpController {
             return
         }
 
-        this.data.id = uuidv4();
         const passHashed = await bcrypt.hash(this.data.password, saltRounds);
         this.data.password = passHashed;
         

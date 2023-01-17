@@ -1,4 +1,4 @@
-const { createSubscription, getSubscriptions } = require("../repo/mySQL")
+const { createSubscription, getSubscriptions } = require("../repo/database")
 
 const create = async (courseId, userId) => {
     const subs = await createSubscription(courseId, userId)

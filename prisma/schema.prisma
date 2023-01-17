@@ -6,33 +6,33 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
-
 model User {
-  id          String @id
-  name        String
-  last_name   String
-  email       String @unique
-  password    String
+  id    String @id @map("_id") @db.ObjectId @default(auto())
+  name    String
+  last_name String
+  email     String @unique
+  password  String
   subscriptions Subscription[]
 }
 model Subscription {
-  id                Int @id @default(autoincrement())
-  name              String
-  effectiveDate     String
-  userId            String @unique
-  user              User @relation(fields: [userId], references: [id])
-  course           Course[]
+  id    String @id @map("_id") @db.ObjectId @default(auto())
+  name String
+  effectiveDate String
+  userId  String @db.ObjectId
+  user  User @relation(fields: [userId], references: [id])
+  courseId String[] @db.ObjectId
+  courses Course[] @relation(fields: [courseId], references: [id])
 }
-
 model Course {
-  id                String @id
-  subject           String
-  description       String
-  category          String
-  published         Boolean
-  createdAt         String
-  subscriptions     Subscription[]
+  id    String @id @map("_id") @db.ObjectId @default(auto())
+  subject String
+  description String
+  category  String
+  published Boolean
+  createdAt String
+  subId String[] @db.ObjectId
+  subscriptions Subscription[] @relation(fields: [subId], references: [id])
 }

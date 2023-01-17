@@ -1,4 +1,4 @@
-const { getUser } = require("../repo/mySQL");
+const { getUser } = require("../repo/database");
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
 
