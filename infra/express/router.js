@@ -87,5 +87,11 @@ router.post("/course/:id/subscribe/:user", async (req, res) => {
     })
     
 })
+router.get("/", (req, res) => {
+    res.status(200).json({
+        data: "Server running",
+        status: 200
+    })
+})
 
 module.exports = router;
