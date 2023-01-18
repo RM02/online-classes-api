@@ -12,19 +12,11 @@ class CourseHttpController {
         if (course) {
             await save(course)
         }
-        const res = {
-            data: course,
-            status: 200,
-        }
-        return res
+        return course
     }
     async getAll () {
         const data = await getMany()
-        const res = {
-            data: data,
-            status: 200
-        }
-        return res
+        return data
     }
 }
 module.exports = CourseHttpController

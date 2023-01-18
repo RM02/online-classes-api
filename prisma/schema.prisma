@@ -29,6 +29,7 @@ model Subscription {
 model Course {
   id    String @id @map("_id") @db.ObjectId @default(auto())
   subject String
+  imgUrl  String?
   description String
   category  String
   published Boolean
